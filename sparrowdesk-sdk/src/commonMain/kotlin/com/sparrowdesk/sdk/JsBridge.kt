@@ -29,6 +29,15 @@ internal object JsBridge {
         return "$API.setContactFields(${mapToJsObject(fields)});"
     }
 
+    fun setLanguage(language: String): String = "$API.setLanguage(\"${escapeJs(language)}\");"
+
+    /**
+     * Forces the widget to reconnect its socket and refetch missed messages. Guarded so it is
+     * a no-op on widget builds that do not expose `reconnect` yet.
+     */
+    fun reconnect(): String =
+        "if ($API && typeof $API.reconnect === \"function\") { $API.reconnect(); }"
+
     private fun mapToJsObject(map: Map<String, String>): String {
         val entries = map.entries.joinToString(",") { (key, value) ->
             "\"${escapeJs(key)}\":\"${escapeJs(value)}\""

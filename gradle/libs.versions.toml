@@ -3,6 +3,7 @@ kotlin = "2.1.0"
 agp = "8.7.3"
 android-minSdk = "24"
 android-compileSdk = "35"
+androidx-lifecycle = "2.6.1"
 
 [plugins]
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
@@ -12,3 +13,4 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
+androidx-lifecycle-common = { module = "androidx.lifecycle:lifecycle-common", version.ref = "androidx-lifecycle" }
