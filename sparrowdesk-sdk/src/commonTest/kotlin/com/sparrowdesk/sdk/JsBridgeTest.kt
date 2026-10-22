@@ -92,4 +92,25 @@ class JsBridgeTest {
         val result = JsBridge.setContactFields(mapOf("name" to "O'Brien"))
         assertTrue(result.contains("\\'"))
     }
+
+    @Test
+    fun setLanguageProducesCorrectJs() {
+        assertEquals("window.sparrowDesk.setLanguage(\"fr\");", JsBridge.setLanguage("fr"))
+    }
+
+    @Test
+    fun setLanguageEscapesValue() {
+        val result = JsBridge.setLanguage("fr\");alert(1);</script>")
+        assertEquals(
+            "window.sparrowDesk.setLanguage(\"fr\\\");alert(1);\\x3c/script\\x3e\");",
+            result
+        )
+    }
+
+    @Test
+    fun reconnectIsGuarded() {
+        val result = JsBridge.reconnect()
+        assertTrue(result.contains("typeof window.sparrowDesk.reconnect === \"function\""))
+        assertTrue(result.contains("window.sparrowDesk.reconnect();"))
+    }
 }
