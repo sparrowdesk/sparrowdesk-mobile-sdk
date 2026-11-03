@@ -13,7 +13,7 @@ metadata:
   description: Kotlin Multiplatform SDK that embeds the SparrowDesk chat widget in Android and iOS apps.
   annotations:
     github.com/project-slug: sparrowdesk/sparrowdesk-mobile-sdk
-    sparrow.io/hide: docs
+    sparrow.io/hide: observability,config,secrets,docs
   tags:
   - library
   - sparrowdesk
