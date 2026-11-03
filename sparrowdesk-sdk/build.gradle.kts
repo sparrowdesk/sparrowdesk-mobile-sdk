@@ -49,6 +49,8 @@ kotlin {
 
         androidMain.dependencies {
             // Uses Android platform WebView APIs
+            // Foreground/background hooks when attach() receives a LifecycleOwner
+            implementation(libs.androidx.lifecycle.common)
         }
 
         iosMain.dependencies {
