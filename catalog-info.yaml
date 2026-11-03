@@ -1,0 +1,25 @@
+# Launchpad Service Catalog entry for this repo — owned by this repo's team.
+#
+# Launchpad's `sparrowdesk` GitHub provider imports any sparrowdesk repo that has this
+# file on its default branch (re-read every ~15 min). Change it with a normal PR here.
+# Keep `metadata.name` / `namespace` stable: links and the environment selector depend on them.
+# Format: https://backstage.io/docs/features/software-catalog/descriptor-format
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: sparrowdesk-mobile-sdk
+  namespace: sparrowdesk
+  title: SparrowDesk Mobile SDK
+  description: Kotlin Multiplatform SDK that embeds the SparrowDesk chat widget in Android and iOS apps.
+  annotations:
+    github.com/project-slug: sparrowdesk/sparrowdesk-mobile-sdk
+    sparrow.io/hide: docs
+  tags:
+  - library
+  - sparrowdesk
+  - kotlin
+spec:
+  type: library
+  lifecycle: production
+  owner: group:sparrowdesk/sparrowdesk
+  system: system:sparrowdesk/sparrowdesk-application
